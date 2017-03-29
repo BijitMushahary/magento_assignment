@@ -1,0 +1,18 @@
+<?php
+  $products = Mage::getModel("catalog/product")->getCollection()->addAttributeToSelect('*') ->setOrder('entity_id', 'DESC')->setPageSize(10);
+  foreach($products as $product):
+    $_product = Mage::getModel('catalog/product')->load($product->getId());
+    $attribute_value = $_product->getResource()->getAttribute('customerproduct')->getFrontend()->getValue($_product);
+     if($attribute_value == 'Yes')
+      {
+       ?>
+        <img alt="" class="img-responsive" src="<?php echo Mage::helper('catalog/image')->init($_product, 'small_image')->resize(200,200); ?>">
+       <?php
+       ?>
+        <br />
+       <?php
+       echo $product->getName().'<br />';
+       echo $product->getPrice();
+      }
+  endforeach;
+?>
