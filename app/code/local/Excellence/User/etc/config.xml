@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Excellence_User>
+            <version>0.1.0</version>    <!-- Version of module -->
+        </Excellence_User>
+    </modules>
+    <frontend>
+        <routers>
+            <user>
+                <use>standard</use>
+                <args>
+                    <module>Excellence_User</module>
+                    <frontName>user</frontName>
+                </args>
+            </user>
+        </routers>
+        <layout>  <!-- New Section Added -->
+            <updates>
+                <user>
+                    <file>user.xml</file> <!-- This is name of the layout file for this module -->
+                </user>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <user>
+                <class>Excellence_User_Block</class>
+            </user>
+        </blocks>
+        <helpers>
+            <user>
+                <class>Excellence_User_Helper</class> 
+<!-- Path of Helper Files -->
+            </user>
+        </helpers>
+    </global>
+    <global>
+    <models>
+        <user>
+            <class>Excellence_User_Model</class> <!-- Location of all model class files -->
+            <resourceModel>user_mysql4</resourceModel> <!-- Location of resource model -->
+        </user>
+        <user_mysql4>
+            <class>Excellence_User_Model_Mysql4</class>
+            <entities>
+                <user>
+                    <table>user</table>  <!-- Actual table name in sql  -->
+                </user>
+            </entities>
+        </user_mysql4>
+    </models>
+    <resources>  <!-- These are resource setting giving access to module, read/write permission on database -->
+        <user_setup>
+            <setup>
+                <module>Excellence_User</module>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </user_setup>
+        <user_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </user_write>
+        <user_read>
+            <connection>
+                <use>core_read</use>
+            </connection>
+        </user_read>
+    </resources>
+</global>
+</config>

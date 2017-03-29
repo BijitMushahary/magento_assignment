@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+ <layout version="0.1.0">
+  <user_index_index>
+   <update handle="customer_account"/>
+    <reference name="my.account.wrapper">
+     <block type="user/user" name="user" template="catalog/product/list.phtml">
+      <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+       <block type="page/html_pager" name="product_list_toolbar_pager" />
+      </block>
+       <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+     </block>      
+    </reference>
+  </user_index_index>
+</layout>
